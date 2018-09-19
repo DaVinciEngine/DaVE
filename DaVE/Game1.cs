@@ -19,6 +19,7 @@ namespace DaVE
         public static GameTime gameTime = new GameTime();
         public static String currentLevel;
         ConsoleManager consoleManager;
+        LevelManager levelManager;
         public Game1()
         {
             Instance = this;
@@ -92,10 +93,10 @@ namespace DaVE
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-//             TODO: Add your drawing code here
+            //  TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Texture);
             EntityManager.Draw(spriteBatch);
-            LevelManager.Draw(spriteBatch);
+            //LevelManager.Draw(spriteBatch);
             DrawRightAlignedString("Level: " + currentLevel, 35);
             spriteBatch.End();
             
