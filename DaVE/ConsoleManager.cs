@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace DaVE
@@ -8,13 +11,12 @@ namespace DaVE
         SpriteBatch spriteBatch;
 
         Console console;
-        //Texture2D pixel;
-        Texture2D textureImage;
+
+        List<System.String> messages = new List<System.String>();
 
         public ConsoleManager(Game game)
             : base(game)
         {
-            //pixel = new Texture2D(Game.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
 
         }
 
@@ -27,9 +29,21 @@ namespace DaVE
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
-            //console = new Console(pixel);
+            messages.Add("Test Message 1");
+            messages.Add("Test Message 2");
+            messages.Add("Test Message 3");
+            messages.Add("Test Message 4");
+            messages.Add("Test Message 5");
+            messages.Add("Test Message 6");
+            messages.Add("Test Message 7");
+            messages.Add("Test Message 8");
+            messages.Add("Test Message 9");
+            messages.Add("Test Message 10");
+            messages.Add("Test Message 11");
 
-            console = new Console(Game.Content.Load<Texture2D>("image"), new Point(385, 424));
+
+
+            console = new Console(messages, Game.Content.Load<SpriteFont>("fonts/default"));
 
             base.LoadContent();
         }
