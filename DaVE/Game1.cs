@@ -18,7 +18,8 @@ namespace DaVE
         public static Vector2 ScreenSize { get { return new Vector2(Viewport.Width, Viewport.Height); } }
         public static GameTime gameTime = new GameTime();
         public static String currentLevel;
-        
+        ConsoleManager consoleManager;
+        LevelManager levelManager;
         public Game1()
         {
             Instance = this;
@@ -35,6 +36,9 @@ namespace DaVE
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            consoleManager = new ConsoleManager(this);
+            Components.Add(consoleManager);
+
             base.Initialize();
             Level1 firstLevel = new Level1();
 
@@ -89,10 +93,10 @@ namespace DaVE
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-//             TODO: Add your drawing code here
+            //  TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Texture);
             EntityManager.Draw(spriteBatch);
-            LevelManager.Draw(spriteBatch);
+            //LevelManager.Draw(spriteBatch);
             DrawRightAlignedString("Level: " + currentLevel, 35);
             spriteBatch.End();
             

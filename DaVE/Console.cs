@@ -11,6 +11,7 @@ namespace DaVE
         SpriteFont spriteFont;
         int fontSize = 12;
         int fontPadding = 2;
+        Color fontColor = Color.Black;
 
         public Console (List<System.String> messages, SpriteFont spriteFont)
         {
@@ -30,7 +31,7 @@ namespace DaVE
             {
                 spriteBatch.DrawString(spriteFont, messages[i],
                     new Vector2( 0, (fontSize + fontPadding) * i),
-                    Color.White);
+                    fontColor);
 
             }
         }

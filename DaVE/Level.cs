@@ -20,9 +20,7 @@ namespace DaVE
         public virtual void Draw(SpriteBatch spriteBatch)
         
         {
-//            spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
-//            spriteBatch.End();
         }
     }
 }
