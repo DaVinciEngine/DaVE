@@ -1,33 +1,38 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace DaVE
 {
     class Console
     {
-        //Texture2D pixel;
-        Texture2D textureImage;
-        Point size;
+        List<System.String> messages;
+        SpriteFont spriteFont;
+        int fontSize = 12;
+        int fontPadding = 2;
 
-        public Console(Texture2D textureImage, Point size)
+        public Console (List<System.String> messages, SpriteFont spriteFont)
         {
-            //this.pixel = pixel;
-            this.textureImage = textureImage;
-            this.size = size;
-
+            this.messages = messages;
+            this.spriteFont = spriteFont;
         }
 
         public void Initialize()
         {
-            //pixel.SetData(new[] { Color.White });
+
         }
 
 
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(pixel, new Rectangle(10, 20, 100, 50), Color.DarkGreen);
+            for (int i = 0; i < messages.Count; i++)
+            {
+                spriteBatch.DrawString(spriteFont, messages[i],
+                    new Vector2( 0, (fontSize + fontPadding) * i),
+                    Color.White);
 
-            spriteBatch.Draw(textureImage, Vector2.Zero, new Rectangle(Point.Zero, size), Color.White);
+            }
         }
 
     }
